@@ -1,6 +1,7 @@
 public class maze {
 public static void main(String[] args) {
-    System.out.println(mazeans(3, 3));
+
+    
 }
 static int mazeans(int r , int c){
     if(r==1 || c==1)
@@ -9,4 +10,14 @@ static int mazeans(int r , int c){
     int right=mazeans(r, c-1);
     return left+right;
 }
+static void pathmazeans(String s,int r , int c){
+    if(r==0 && c==0){
+    System.out.println(s);
+    }
+    if(r>1)
+    pathmazeans(s+'d',r-1, c);
+    if(c>1)
+    pathmazeans(s+'l',r, c-1);
+}
+
 }
