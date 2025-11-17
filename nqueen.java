@@ -47,6 +47,6 @@ static int queens(boolean[][] board , int rows){
 
         return true;
     }
-}
+}//queen
 
 
