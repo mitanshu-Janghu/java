@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class subset {
     public static void main(String[] args) {
         
-        subset("", "abc");
+        System.err.println(subsetarr("", "abc"));
     }
     static ArrayList<String> subsetarr(String a,String b){
         if(b.isEmpty()){
