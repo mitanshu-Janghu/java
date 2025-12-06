@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class permutation {
     public static void main(String[] args) {
-        System.out.println(permutationlist("", "ab"));
+        System.out.println(permutationlist("", "akb"));
     };
     static void permutation(String p , String x){
         if(x.isEmpty()){
