@@ -8,7 +8,7 @@ public class hashmap {
         hmap.put("no 4", 4);
         hmap.put("no 5", 5);
         hmap.remove("no 5");
-        
-        System.out.println(hmap.get("no 4"));
+        hmap.get("no 4");
+        System.out.println(hmap.containsKey(hmap));
     }
 }
