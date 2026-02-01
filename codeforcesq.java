@@ -1,0 +1,20 @@
+import java.util.Arrays;
+
+public class codeforcesq {
+    public static void main(String[] args) {
+         int[] nums={12,3,1,1};
+         sort(nums);
+         System.out.println(Arrays.toString(nums));
+    }
+    static void sort(int[] nums){
+        for(int i = 1 ; i<nums.length;i++){
+            for(int j = i ; j>1;j--){
+            if(nums[j-1]>nums[j]){
+                int temp=nums[j];
+                nums[j]=nums[j-1];
+                nums[j-1]=temp;
+            }
+        }
+        }
+    }
+}
