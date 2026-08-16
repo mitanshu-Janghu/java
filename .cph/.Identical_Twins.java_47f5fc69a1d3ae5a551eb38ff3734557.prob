@@ -1,0 +1,1 @@
+{"name":"Local: Identical_Twins","url":"/Users/mitanshujanghu/java/Identical_Twins.java","tests":[{"id":1786799774409,"input":"3\n5 1 2 3 2 1\n6 1 2 2 3 2 1\n4 1 1 1 1","output":"2\n4\n6"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/mitanshujanghu/java/Identical_Twins.java","group":"local","local":true}
