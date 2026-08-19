@@ -1,180 +1,140 @@
-
-import java.util.Scanner;
+import java.util.*;
 
 class Vehicle {
-    private String registrationNo;
-    private String brand;
-    private double price;
+    private String r, b;
+    private double p;
 
-    Vehicle() {
-        registrationNo = "";
-        brand = "";
-        price = 0;
-    }
+    Vehicle() {}
 
-    Vehicle(String registrationNo, String brand, double price) {
-        this.registrationNo = registrationNo;
-        this.brand = brand;
-        this.price = price;
+    Vehicle(String r, String b, double p) {
+        this.r = r;
+        this.b = b;
+        this.p = p;
     }
 
     Vehicle(Vehicle v) {
-        this.registrationNo = v.registrationNo;
-        this.brand = v.brand;
-        this.price = v.price;
+        r = v.r;
+        b = v.b;
+        p = v.p;
     }
 
-    public String getRegistrationNo() {
-        return registrationNo;
+    String getR() {
+        return r;
     }
 
-    public void setRegistrationNo(String registrationNo) {
-        this.registrationNo = registrationNo;
+    void setR(String r) {
+        this.r = r;
     }
 
-    public String getBrand() {
-        return brand;
+    String getB() {
+        return b;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    void setB(String b) {
+        this.b = b;
     }
 
-    public double getPrice() {
-        return price;
+    double getP() {
+        return p;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    void setP(double p) {
+        this.p = p;
     }
 
-    public double calculateTax() {
-        return price * 0.10;
+    double tax() {
+        return p * 0.10;
     }
 
-    public void displayVehicle() {
-        System.out.println("Registration No: " + registrationNo);
-        System.out.println("Brand: " + brand);
-        System.out.println("Price: " + price);
-        System.out.println("Tax: " + calculateTax());
+    void show() {
+        System.out.println(r + " " + b + " " + p + " " + tax());
     }
 }
 
 class Car extends Vehicle {
-    private String fuelType;
-    private int numberOfSeats;
+    private String f;
+    private int s;
 
     Car() {
         super();
-        fuelType = "";
-        numberOfSeats = 0;
     }
 
-    Car(String registrationNo, String brand, double price, String fuelType, int numberOfSeats) {
-        super(registrationNo, brand, price);
-        this.fuelType = fuelType;
-        this.numberOfSeats = numberOfSeats;
+    Car(String r, String b, double p, String f, int s) {
+        super(r, b, p);
+        this.f = f;
+        this.s = s;
     }
 
     Car(Car c) {
         super(c);
-        this.fuelType = c.fuelType;
-        this.numberOfSeats = c.numberOfSeats;
+        f = c.f;
+        s = c.s;
     }
 
-    public String getFuelType() {
-        return fuelType;
+    String getF() {
+        return f;
     }
 
-    public void setFuelType(String fuelType) {
-        this.fuelType = fuelType;
+    void setF(String f) {
+        this.f = f;
     }
 
-    public int getNumberOfSeats() {
-        return numberOfSeats;
+    int getS() {
+        return s;
     }
 
-    public void setNumberOfSeats(int numberOfSeats) {
-        this.numberOfSeats = numberOfSeats;
+    void setS(int s) {
+        this.s = s;
     }
 
-    public double calculateOnRoadPrice() {
-        return getPrice() + calculateTax();
+    double onRoad() {
+        return getP() + tax();
     }
 
-    public void displayCar() {
-        displayVehicle();
-        System.out.println("Fuel Type: " + fuelType);
-        System.out.println("Number of Seats: " + numberOfSeats);
-        System.out.println("On-Road Price: " + calculateOnRoadPrice());
+    void showCar() {
+        show();
+        System.out.println(f + " " + s + " " + onRoad());
     }
 }
 
 public class CarDemo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-        Car[] cars = new Car[3];
-
-        for (int i = 0; i < 3; i++) {
-            System.out.println("\nEnter details of Car " + (i + 1));
-
-            System.out.print("Registration No: ");
-            String registrationNo = sc.nextLine();
-
-            System.out.print("Brand: ");
-            String brand = sc.nextLine();
-
-            System.out.print("Price: ");
-            double price = sc.nextDouble();
-            sc.nextLine();
-
-            System.out.print("Fuel Type: ");
-            String fuelType = sc.nextLine();
-
-            System.out.print("Number of Seats: ");
-            int seats = sc.nextInt();
-            sc.nextLine();
-
-            cars[i] = new Car(registrationNo, brand, price, fuelType, seats);
-        }
-
-        System.out.println("\n===== ALL CARS =====");
+        Car[] c = new Car[3];
 
         for (int i = 0; i < 3; i++) {
-            System.out.println("\nCar " + (i + 1));
-            cars[i].displayCar();
+            String r = sc.next();
+            String b = sc.next();
+            double p = sc.nextDouble();
+            String f = sc.next();
+            int s = sc.nextInt();
+
+            c[i] = new Car(r, b, p, f, s);
         }
 
-        System.out.println("\n===== UPDATING CAR 1 =====");
+        for (int i = 0; i < 3; i++)
+            c[i].showCar();
 
-        cars[0].setPrice(cars[0].getPrice() + 50000);
-        cars[0].setFuelType("Hybrid");
+        c[0].setP(c[0].getP() + 50000);
+        c[0].setF("Hybrid");
 
-        System.out.println("Updated Car 1:");
-        cars[0].displayCar();
+        Car x = new Car(c[1]);
+        x.setB("Honda");
+        x.setP(900000);
+        x.setF("Electric");
 
-        System.out.println("\n===== COPY OF CAR 2 =====");
+        System.out.println("Copy:");
+        x.showCar();
 
-        Car copiedCar = new Car(cars[1]);
-
-        copiedCar.setBrand("Toyota");
-        copiedCar.setPrice(900000);
-        copiedCar.setFuelType("Electric");
-
-        System.out.println("Copied and Modified Car:");
-        copiedCar.displayCar();
-
-        Car highest = cars[0];
+        Car max = c[0];
 
         for (int i = 1; i < 3; i++) {
-            if (cars[i].calculateOnRoadPrice() > highest.calculateOnRoadPrice()) {
-                highest = cars[i];
-            }
+            if (c[i].onRoad() > max.onRoad())
+                max = c[i];
         }
 
-
-        highest.displayCar();
+        System.out.println("Highest:");
+        max.showCar();
 
         sc.close();
     }
