@@ -1,5 +1,12 @@
-public class binarytree {
-    public static void main(String[] args) {
-        
-    }
+public class binarytree {}
+  class Node{
+    int value;
+    Node left;
+    Node right;
+  Node root;
+
+  Node(int val){
+    value=val;
+  }
 }
+

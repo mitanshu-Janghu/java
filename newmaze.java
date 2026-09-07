@@ -9,13 +9,17 @@ public class newmaze {
 
 //        System.out.println(pathRetDiagonal("", 3, 3));
 
-        boolean[][] board = {
-                {true, true, true},
-                {true, true, true},
-                {true, true, true}
+        // boolean[][] board = {
+        //         {true, true, true},
+        //         {true, false, true},
+        //         {true, true, true}
+        // };
+         boolean[][] board = {
+                {true, true},
+                {true, false},
         };
-
-        allPath("", board, 0, 0);
+pathRestrictions("",board,0,0);
+        // allPath("", board, 0, 0);
     }
 
     static int count(int r, int c) {
