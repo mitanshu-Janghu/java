@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class numberpermutation {
     public static void main(String[] args) {
-        int[] arr= {1,2,3,4};
+        int[] arr= {1,2,3};
         ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
         boolean[] b = new boolean[arr.length];
         helper(arr, 0, ans, new ArrayList<>(),b);
