@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "GfG",
+            "request": "launch",
+            "mainClass": "GfG",
+            "projectName": "java_7e9f61c3"
+        },
+        {
+            "type": "java",
             "name": "spiralmatrix",
             "request": "launch",
             "mainClass": "spiralmatrix",
